@@ -126,6 +126,10 @@ Mengingat ini adalah masalah klasifikasi multi-kelas, metrik yang digunakan adal
    - Deskripsi: Rata-rata harmonis antara Precision dan Recall.
    - Relevansi: Metrik terbaik jika distribusi data tidak seimbang.
    - Hasil dalam proyek: Model Stacking berhasil mencapai F1-Score 0.998988
+ - Confusion Matrix:
+    - Deskripsi: Tabel visualisasi yang membandingkan prediksi model dengan nilai sebenarnya. Matriks ini menampilkan jumlah True Positive (TP), True Negative (TN), False Positive (FP), dan False Negative (FN) untuk setiap kelas.
+    - Relevansi: Sangat berguna untuk melihat detail kesalahan klasifikasi model. Misalnya, apakah model sering salah memprediksi High sebagai Moderate (berbahaya karena menganggap remeh risiko) atau sebaliknya.
+    - Hasil dalam proyek: Model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran.
 ### Hasil Proyek
 1. Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
 - ![link](AkurasiBaseModel.png)
@@ -136,6 +140,7 @@ Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai be
 - Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 92%.
 - Baseline Model (SVC Tunggal): Mencapai akurasi sebesar 95%.
 - Stacking Ensemble Model: Setelah dilakukan tuning dan stacking, akurasi meningkat menjadi 99%.
-- 
-Analisis Confusion Matrix: Model Stacking menunjukkan kemampuan yang lebih baik dalam membedakan kelas 2 (High) dan 3 (Very High) dibandingkan model tunggal, yang dibuktikan dengan nilai Recall yang lebih tinggi pada kelas-kelas kritis tersebut.
-Kesimpulannya, model Stacking terpilih sebagai model terbaik karena memiliki Generalization Error yang paling rendah dan F1-Score yang seimbang di seluruh kelas risiko, sehingga layak digunakan sebagai mesin rekomendasi untuk sistem peringatan dini karhutla di Riau.
+
+3. Hasil Confusion Matrix dari model Stacking
+- ![link](ConfusionMatrix.png)
+Analisis Confusion Matrix: Dari confusion matrix ini, terlihat bahwa model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran. Model ini hampir tidak membuat kesalahan prediksi, kecuali satu kasus di mana 'Risiko Kebakaran Rendah' (Aktual 1) salah diklasifikasikan sebagai 'Risiko Kebakaran Sangat Rendah' (Prediksi 0). Ini menunjukkan akurasi yang sangat tinggi dan kemampuan yang kuat untuk membedakan antar kelas risiko kebakaran, yang mana sangat krusial dalam sistem peringatan dini kebakaran.
