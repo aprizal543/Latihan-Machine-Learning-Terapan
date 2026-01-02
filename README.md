@@ -133,9 +133,9 @@ Mengingat ini adalah masalah klasifikasi multi-kelas, metrik yang digunakan adal
 - ![link](Stacking(LR).png)
 
 Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai berikut:
-Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 92%.
-Baseline Model (SVC Tunggal): Mencapai akurasi sebesar 95%.
-
-Stacking Ensemble Model: Setelah dilakukan tuning dan stacking, akurasi meningkat menjadi 99%.
+- Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 92%.
+- Baseline Model (SVC Tunggal): Mencapai akurasi sebesar 95%.
+- Stacking Ensemble Model: Setelah dilakukan tuning dan stacking, akurasi meningkat menjadi 99%.
+- 
 Analisis Confusion Matrix: Model Stacking menunjukkan kemampuan yang lebih baik dalam membedakan kelas 2 (High) dan 3 (Very High) dibandingkan model tunggal, yang dibuktikan dengan nilai Recall yang lebih tinggi pada kelas-kelas kritis tersebut.
 Kesimpulannya, model Stacking terpilih sebagai model terbaik karena memiliki Generalization Error yang paling rendah dan F1-Score yang seimbang di seluruh kelas risiko, sehingga layak digunakan sebagai mesin rekomendasi untuk sistem peringatan dini karhutla di Riau.
