@@ -127,10 +127,10 @@ Mengingat ini adalah masalah klasifikasi multi-kelas, metrik yang digunakan adal
    - Relevansi: Metrik terbaik jika distribusi data tidak seimbang.
    - Hasil dalam proyek: Model Stacking berhasil mencapai F1-Score 0.998988
 ### Hasil Proyek
-Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
-![link](AkurasiBaseModel.png)
-Hasil Akurasi dari model Stacking (Menerapkan paramater dari GridSearchCV)
-![link](Stacking(LR).png)
+1. Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
+- ![link](AkurasiBaseModel.png)
+2. Hasil Akurasi dari model Stacking (Menerapkan paramater dari GridSearchCV)
+- ![link](Stacking(LR).png)
 
 Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai berikut:
 Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 92%.
