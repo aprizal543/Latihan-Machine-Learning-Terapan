@@ -68,16 +68,13 @@ Tahapan data preparation sangat krusial untuk memastikan data siap dilatih oleh 
 1. Data Cleaning (Pembersihan Data)
     - Penanganan Missing Values: Melakukan pengecekan nilai NaN. Jika terdapat data kosong pada fitur numerik (seperti Tavg atau RR), akan diisi dengan nilai rata-rata (mean) atau median, atau menghapus baris jika persentasenya sangat kecil.
     - Alasan: Algoritma machine learning umumnya tidak dapat memproses input yang memiliki nilai kosong.
-2. Handling Outliers
-    - Metode: Menggunakan metode IQR (Inter Quartile Range) untuk mendeteksi nilai ekstrem pada fitur curah hujan atau kecepatan angin yang mungkin merupakan kesalahan pencatatan alat.
-    - Alasan: Outlier dapat mendistorsi model statistik dan mengurangi akurasi, terutama pada model yang sensitif terhadap jarak seperti SVM.
-3. Data Splitting (Pembagian Data)
+2. Data Splitting (Pembagian Data)
     - Proses: Membagi dataset menjadi Train Set (80%) dan Test Set (20%).
     - Alasan: Diperlukan untuk mengevaluasi performa model pada data yang belum pernah dilihat sebelumnya (unseen data) guna menghindari overfitting.
-4. Feature Scaling (Standarisasi)
-    - Metode: Menggunakan StandardScaler atau MinMaxScaler untuk mengubah skala data fitur numerik agar memiliki rentang yang seragam.
+3. Feature Scaling (Standarisasi)
+    - Metode: Menggunakan StandardScaler untuk mengubah skala data fitur numerik agar memiliki rentang yang seragam.
     - Alasan: Fitur seperti Curah Hujan (0-100mm) dan Temperatur (20-35°C) memiliki skala berbeda. Algoritma seperti SVM dan Neural Networks sangat sensitif terhadap skala data. Penyetaraan skala mempercepat konvergensi gradien.
-5. Handling Imbalanced Data 
+4. Handling Imbalanced Data 
     - Metode: Jika analisis EDA menunjukkan ketimpangan kelas yang ekstrem, teknik SMOTE (Synthetic Minority Over-sampling Technique) diterapkan pada data latih.
     - Alasan: Agar model tidak bias memprediksi kelas mayoritas (misal: selalu memprediksi "Low") dan mengabaikan kelas minoritas ("Very High").
 ### Modeling
