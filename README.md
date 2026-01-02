@@ -129,7 +129,7 @@ Mengingat ini adalah masalah klasifikasi multi-kelas, metrik yang digunakan adal
     - Hasil dalam proyek: Model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran.
 ### Hasil Proyek
 1. Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
-- ![akurasibasemodel]([AkurasiBaseModel.png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/39ea679ea3751800d92013edb289dd09f262986a/AkurasiBaseModel.png))
+- ![AkurasiBaseModel.png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/39ea679ea3751800d92013edb289dd09f262986a/AkurasiBaseModel.png)
 2. Hasil Akurasi dari model Stacking (Menerapkan paramater dari GridSearchCV)
 - ![akurasistacking]([Stacking(LR).png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/6dcd7e4147308f05063be297136abbc0b3d3de1c/Stacking(LR).png))
 
