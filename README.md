@@ -125,11 +125,13 @@ Mengingat ini adalah masalah klasifikasi multi-kelas, metrik yang digunakan adal
    - Hasil dalam proyek: Model Stacking berhasil mencapai F1-Score 0.998988
  - Confusion Matrix:
     - Deskripsi: Tabel visualisasi yang membandingkan prediksi model dengan nilai sebenarnya. Matriks ini menampilkan jumlah True Positive (TP), True Negative (TN), False Positive (FP), dan False Negative (FN) untuk setiap kelas.
-    - Relevansi: Sangat berguna untuk melihat detail kesalahan klasifikasi model. Misalnya, apakah model sering salah memprediksi High sebagai Moderate (berbahaya karena menganggap remeh risiko) atau sebaliknya.
+    - Relevansi: Sangat berguna untuk 
+melihat detail kesalahan klasifikasi model. Misalnya, apakah model sering salah memprediksi High sebagai Moderate (berbahaya karena menganggap remeh risiko) atau sebaliknya.
     - Hasil dalam proyek: Model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran.
 ### Hasil Proyek
 1. Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
 - ![AkurasiBaseModel.png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/39ea679ea3751800d92013edb289dd09f262986a/AkurasiBaseModel.png)
+- <img width="340" height="96" alt="AkurasiBaseModel" src="https://github.com/user-attachments/assets/330a1211-4f79-4ad8-9bf8-ef48fbedd66b" />
 2. Hasil Akurasi dari model Stacking (Menerapkan paramater dari GridSearchCV)
 - ![Stacking(LR).png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/6dcd7e4147308f05063be297136abbc0b3d3de1c/Stacking(LR).png)
 
