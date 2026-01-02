@@ -130,10 +130,9 @@ melihat detail kesalahan klasifikasi model. Misalnya, apakah model sering salah 
     - Hasil dalam proyek: Model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran.
 ### Hasil Proyek
 1. Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
-- ![AkurasiBaseModel.png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/39ea679ea3751800d92013edb289dd09f262986a/AkurasiBaseModel.png)
 - <img width="340" height="96" alt="AkurasiBaseModel" src="https://github.com/user-attachments/assets/330a1211-4f79-4ad8-9bf8-ef48fbedd66b" />
 2. Hasil Akurasi dari model Stacking (Menerapkan paramater dari GridSearchCV)
-- ![Stacking(LR).png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/6dcd7e4147308f05063be297136abbc0b3d3de1c/Stacking(LR).png)
+- <img width="554" height="63" alt="Stacking(LR)" src="https://github.com/user-attachments/assets/8fe472d9-b019-418d-ac4d-aad2b6506ea0" />
 
 Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai berikut:
 - Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 92%.
@@ -141,6 +140,7 @@ Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai be
 - Stacking Ensemble Model: Setelah dilakukan tuning dan stacking, akurasi meningkat menjadi 99%.
 
 3. Hasil Confusion Matrix dari model Stacking
-- ![ConfusionMatrix.png](https://github.com/aprizal543/Latihan-Machine-Learning-Terapan/blob/6dcd7e4147308f05063be297136abbc0b3d3de1c/ConfusionMatrix.png)
+- <img width="260" height="238" alt="ConfusionMatrix" src="https://github.com/user-attachments/assets/e3b169df-6eb7-4854-9023-b94edcf1c479" />
   
 Analisis Confusion Matrix: Dari confusion matrix ini, terlihat bahwa model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran. Model ini hampir tidak membuat kesalahan prediksi, kecuali satu kasus di mana 'Risiko Kebakaran Rendah' (Aktual 1) salah diklasifikasikan sebagai 'Risiko Kebakaran Sangat Rendah' (Prediksi 0). Ini menunjukkan akurasi yang sangat tinggi dan kemampuan yang kuat untuk membedakan antar kelas risiko kebakaran, yang mana sangat krusial dalam sistem peringatan dini kebakaran.
+
