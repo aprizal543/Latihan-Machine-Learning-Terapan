@@ -143,4 +143,5 @@ Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai be
 
 3. Hasil Confusion Matrix dari model Stacking
 - ![link](ConfusionMatrix.png)
+  
 Analisis Confusion Matrix: Dari confusion matrix ini, terlihat bahwa model Stacking memiliki performa yang sangat baik dalam mengklasifikasikan tingkat risiko kebakaran. Model ini hampir tidak membuat kesalahan prediksi, kecuali satu kasus di mana 'Risiko Kebakaran Rendah' (Aktual 1) salah diklasifikasikan sebagai 'Risiko Kebakaran Sangat Rendah' (Prediksi 0). Ini menunjukkan akurasi yang sangat tinggi dan kemampuan yang kuat untuk membedakan antar kelas risiko kebakaran, yang mana sangat krusial dalam sistem peringatan dini kebakaran.
