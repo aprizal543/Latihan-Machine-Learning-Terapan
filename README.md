@@ -123,7 +123,7 @@ Relevansi: Sangat Kritikal dalam bencana alam. Kita tidak boleh melewatkan detek
 Deskripsi: Rata-rata harmonis antara Precision dan Recall.
 Relevansi: Metrik terbaik jika distribusi data tidak seimbang.
 ### Hasil Proyek
-![link](<img width="554" height="63" alt="Stacking(LR)" src="https://github.com/user-attachments/assets/b6ab1ddc-541b-4da3-ace0-24dda69ab345" />)
+![link](Stacking(LR).png)
 
 Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai berikut:
 Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 82%.
