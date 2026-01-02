@@ -66,20 +66,20 @@ Untuk memahami data, langkah-langkah berikut dilakukan:
 ### Data Preparation
 Tahapan data preparation sangat krusial untuk memastikan data siap dilatih oleh model. Proses yang dilakukan secara berurutan adalah:
 1. Data Cleaning (Pembersihan Data)
-Penanganan Missing Values: Melakukan pengecekan nilai NaN. Jika terdapat data kosong pada fitur numerik (seperti Tavg atau RR), akan diisi dengan nilai rata-rata (mean) atau median, atau menghapus baris jika persentasenya sangat kecil.
-Alasan: Algoritma machine learning umumnya tidak dapat memproses input yang memiliki nilai kosong.
+    - Penanganan Missing Values: Melakukan pengecekan nilai NaN. Jika terdapat data kosong pada fitur numerik (seperti Tavg atau RR), akan diisi dengan nilai rata-rata (mean) atau median, atau menghapus baris jika persentasenya sangat kecil.
+    - Alasan: Algoritma machine learning umumnya tidak dapat memproses input yang memiliki nilai kosong.
 2. Handling Outliers
-Metode: Menggunakan metode IQR (Inter Quartile Range) untuk mendeteksi nilai ekstrem pada fitur curah hujan atau kecepatan angin yang mungkin merupakan kesalahan pencatatan alat.
-Alasan: Outlier dapat mendistorsi model statistik dan mengurangi akurasi, terutama pada model yang sensitif terhadap jarak seperti SVM.
+    - Metode: Menggunakan metode IQR (Inter Quartile Range) untuk mendeteksi nilai ekstrem pada fitur curah hujan atau kecepatan angin yang mungkin merupakan kesalahan pencatatan alat.
+    - Alasan: Outlier dapat mendistorsi model statistik dan mengurangi akurasi, terutama pada model yang sensitif terhadap jarak seperti SVM.
 3. Data Splitting (Pembagian Data)
-Proses: Membagi dataset menjadi Train Set (80%) dan Test Set (20%).
-Alasan: Diperlukan untuk mengevaluasi performa model pada data yang belum pernah dilihat sebelumnya (unseen data) guna menghindari overfitting.
+    - Proses: Membagi dataset menjadi Train Set (80%) dan Test Set (20%).
+    - Alasan: Diperlukan untuk mengevaluasi performa model pada data yang belum pernah dilihat sebelumnya (unseen data) guna menghindari overfitting.
 4. Feature Scaling (Standarisasi)
-Metode: Menggunakan StandardScaler atau MinMaxScaler untuk mengubah skala data fitur numerik agar memiliki rentang yang seragam.
-Alasan: Fitur seperti Curah Hujan (0-100mm) dan Temperatur (20-35°C) memiliki skala berbeda. Algoritma seperti SVM dan Neural Networks sangat sensitif terhadap skala data. Penyetaraan skala mempercepat konvergensi gradien.
+    - Metode: Menggunakan StandardScaler atau MinMaxScaler untuk mengubah skala data fitur numerik agar memiliki rentang yang seragam.
+    - Alasan: Fitur seperti Curah Hujan (0-100mm) dan Temperatur (20-35°C) memiliki skala berbeda. Algoritma seperti SVM dan Neural Networks sangat sensitif terhadap skala data. Penyetaraan skala mempercepat konvergensi gradien.
 5. Handling Imbalanced Data 
-Metode: Jika analisis EDA menunjukkan ketimpangan kelas yang ekstrem, teknik SMOTE (Synthetic Minority Over-sampling Technique) diterapkan pada data latih.
-Alasan: Agar model tidak bias memprediksi kelas mayoritas (misal: selalu memprediksi "Low") dan mengabaikan kelas minoritas ("Very High").
+    - Metode: Jika analisis EDA menunjukkan ketimpangan kelas yang ekstrem, teknik SMOTE (Synthetic Minority Over-sampling Technique) diterapkan pada data latih.
+    - Alasan: Agar model tidak bias memprediksi kelas mayoritas (misal: selalu memprediksi "Low") dan mengabaikan kelas minoritas ("Very High").
 ### Modeling
 Pada tahap ini, model machine learning dibangun untuk menyelesaikan permasalahan klasifikasi risiko kebakaran.
 ##### Pendekatan: Stacking Ensemble
@@ -87,17 +87,17 @@ Sesuai dengan Solution Statement, strategi utama adalah menggunakan metode Stack
 ##### Tahap 1: Base Models (Level-0)
 Tiga algoritma digunakan sebagai fondasi:
 1. Random Forest Classifier
-Parameter: n_estimators , max_depth, min_samples_split, criterion, max_features
-Kelebihan: Robust terhadap noise, mampu menangani hubungan non-linear, tidak terlalu butuh scaling.
-Kekurangan: Kompleksitas tinggi, waktu training bisa lama jika pohon sangat banyak.
+    - Parameter: n_estimators , max_depth, min_samples_split, criterion, max_features
+    - Kelebihan: Robust terhadap noise, mampu menangani hubungan non-linear, tidak terlalu butuh scaling.
+    - Kekurangan: Kompleksitas tinggi, waktu training bisa lama jika pohon sangat banyak.
 2. Gradient Boosting Classifier
-Parameter: learning_rate, n_estimators, max_depth
-Kelebihan: Performa prediksi sangat tinggi, memiliki regularisasi bawaan untuk mencegah overfitting.
-Kekurangan: Banyak hyperparameter yang harus dituning, sensitif terhadap outlier.
+    - Parameter: learning_rate, n_estimators, max_depth
+    - Kelebihan: Performa prediksi sangat tinggi, memiliki regularisasi bawaan untuk mencegah overfitting.
+    - Kekurangan: Banyak hyperparameter yang harus dituning, sensitif terhadap outlier.
 3. Support Vector Machine (SVM)
-Parameter: C (regularisasi), kernel (RBF/Linear), gamma.
-Kelebihan: Efektif pada ruang dimensi tinggi, akurat jika margin antar kelas jelas.
-Kekurangan: Berat secara komputasi pada dataset besar, sensitif terhadap noise.
+    - Parameter: C (regularisasi), kernel (RBF/Linear), gamma.
+    - Kelebihan: Efektif pada ruang dimensi tinggi, akurat jika margin antar kelas jelas.
+    - Kekurangan: Berat secara komputasi pada dataset besar, sensitif terhadap noise.
 ##### Tahap 2: Meta Model (Level-1)
 - Algoritma: Logistic Regression.
 - Fungsi: Model ini akan belajar dari prediksi (probabilitas) yang dihasilkan oleh ketiga Base Models di atas untuk membuat keputusan final.
@@ -111,22 +111,31 @@ Tahap evaluasi bertujuan untuk mengukur seberapa baik model bekerja dalam mempre
 ##### Metrik Evaluasi
 Mengingat ini adalah masalah klasifikasi multi-kelas, metrik yang digunakan adalah:
 - Accuracy:
-Deskripsi: Rasio prediksi benar terhadap total data.
-Penggunaan: Memberikan gambaran umum kinerja model.
+   - Deskripsi: Rasio prediksi benar terhadap total data.
+   - Penggunaan: Memberikan gambaran umum kinerja model.
+   - Hasil dalam proyek: Model Stacking berhasil mencapai Akurasi  0.998987
 - Precision:
-Deskripsi: Seberapa akurat model saat memprediksi risiko "High" (Berapa banyak yang benar-benar "High" dari semua yang ditebak "High").
-Relevansi: Penting untuk meminimalkan False Positive (Alarm palsu) agar sumber daya pemadaman tidak terbuang sia-sia.
+   - Deskripsi: Seberapa akurat model saat memprediksi risiko "High" (Berapa banyak yang benar-benar "High" dari semua yang ditebak "High").
+   - Relevansi: Penting untuk meminimalkan False Positive (Alarm palsu) agar sumber daya pemadaman tidak terbuang sia-sia.
+   - Hasil dalam proyek: Model Stacking berhasil mencapai Precision 0.998995
 - Recall (Sensitivity):
-Deskripsi: Kemampuan model menemukan semua kejadian "High" yang sebenarnya terjadi.
-Relevansi: Sangat Kritikal dalam bencana alam. Kita tidak boleh melewatkan deteksi kebakaran (meminimalkan False Negative).
+   - Deskripsi: Kemampuan model menemukan semua kejadian "High" yang sebenarnya terjadi.
+   - Relevansi: Sangat Kritikal dalam bencana alam. Kita tidak boleh melewatkan deteksi kebakaran (meminimalkan False Negative).
+   - Hasil dalam proyek: Model Stacking berhasil mencapai Recall 0.998987
 - F1-Score:
-Deskripsi: Rata-rata harmonis antara Precision dan Recall.
-Relevansi: Metrik terbaik jika distribusi data tidak seimbang.
+   - Deskripsi: Rata-rata harmonis antara Precision dan Recall.
+   - Relevansi: Metrik terbaik jika distribusi data tidak seimbang.
+   - Hasil dalam proyek: Model Stacking berhasil mencapai F1-Score 0.998988
 ### Hasil Proyek
+Hasil Akurasi dari base model (tanpa stacking dan pencarian hyperparameter tuning)
+![link](AkurasiBaseModel.png)
+Hasil Akurasi dari model Stacking (Menerapkan paramater dari GridSearchCV)
 ![link](Stacking(LR).png)
 
 Berdasarkan evaluasi menggunakan data uji (Test Set), diperoleh hasil sebagai berikut:
-Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 82%.
-Stacking Ensemble Model: Setelah dilakukan tuning dan stacking, akurasi meningkat menjadi 89% (contoh).
+Baseline Model (Random Forest Tunggal): Mencapai akurasi sebesar 92%.
+Baseline Model (SVC Tunggal): Mencapai akurasi sebesar 95%.
+
+Stacking Ensemble Model: Setelah dilakukan tuning dan stacking, akurasi meningkat menjadi 99%.
 Analisis Confusion Matrix: Model Stacking menunjukkan kemampuan yang lebih baik dalam membedakan kelas 2 (High) dan 3 (Very High) dibandingkan model tunggal, yang dibuktikan dengan nilai Recall yang lebih tinggi pada kelas-kelas kritis tersebut.
 Kesimpulannya, model Stacking terpilih sebagai model terbaik karena memiliki Generalization Error yang paling rendah dan F1-Score yang seimbang di seluruh kelas risiko, sehingga layak digunakan sebagai mesin rekomendasi untuk sistem peringatan dini karhutla di Riau.
